@@ -22,7 +22,7 @@ class BlogController extends AbstractController
     }
     // routes dynamiques de sf6 :
     #[Route('/blog/{id}/{nom}', name: 'app_blog',
-     requirements: ["nom" => "[a-z]{5, 50}"])] 
+     requirements: ["nom" => "[a-zA]{5, 50}"])] 
     public function dynamiques($id,  $nom): Response
     {
         return $this->render('blog/index.html.twig', [

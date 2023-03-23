@@ -9,9 +9,19 @@
 </style>
 
 <div class="example-wrapper">
-    <h1> {{ dynamique }}</h1>
+    {# <h1> {{ dynamique }}</h1>
     <div class="" id=""> {{dynamique 
-    |upper }}  </div>
+    |upper }}  </div> #}
+
+    <br><br>
+
+       <ol>
+    {% for inscris in users %}
+       <li>  {{inscris.firstname }}
+       </li>
+
+    {% endfor %}
+       </ol>
     
 </div>
 

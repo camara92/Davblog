@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Repository\UsersRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,9 +10,16 @@ use Symfony\Component\Routing\Annotation\Route;
 class BlogController extends AbstractController
 {
     #[Route('/', name: 'app_hello')]
-    public function Hello(): Response
+    public function Hello(UsersRepository $usersRepository): Response
     {
-        return new Response('<h1>Bonjour Daouda </h1>');
+        $users = $usersRepository->findAll(); 
+
+        // return new Response('<h1>Bonjour Daouda </h1>');
+
+        return $this->render('blog/index.html.twig', [
+            'controller_name' => 'BlogController',
+            'users'=>$users,
+        ]);
     }
     #[Route('/blog', name: 'app_blog')]
     public function index(): Response
@@ -20,9 +28,8 @@ class BlogController extends AbstractController
             'controller_name' => 'BlogController',
         ]);
     }
-    // routes dynamiques de sf6 :
-    #[Route('/blog/{id}/{nom}', name: 'app_blog',
-     requirements: ["nom" => "[a-zA]{5, 50}"])] 
+  
+        #[Route('/blog/{id}/{nom}', name: 'app_blog')] 
     public function dynamiques($id,  $nom): Response
     {
         return $this->render('blog/index.html.twig', [

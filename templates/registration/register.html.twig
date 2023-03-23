@@ -1,0 +1,27 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Register
+{% endblock %}
+
+{% block body %}
+	<div class="container">
+		<h1>Formulaire d'inscription
+		</h1>
+
+		{{ form_start(registrationForm) }}
+		{{ form_row( registrationForm . firstname , { ' attr ' :{ ' class ' : ' form form-control ' },}) }}
+		{{ form_row( registrationForm . lastname , { ' attr ' :{ ' class ' : ' form form-control ' }}) }}
+		{{ form_row( registrationForm . adress , { ' attr ' :{ ' class ' : ' form form-control ' }}) }}
+		{{ form_row( registrationForm . cp , { ' attr ' :{ ' class ' : ' form form-control ' }}) }}
+		{{ form_row( registrationForm . city , { ' attr ' :{ ' class ' : ' form form-control ' }}) }}
+		{{ form_row( registrationForm . profile , { ' attr ' :{ ' class ' : ' form form-control ' }}) }}
+		{{ form_row( registrationForm . email , { ' attr ' :{ ' class ' : ' form form-control ' }}) }}
+		{# {{ form_row( registrationForm . Plainpassword , { ' attr ' :{ ' class ' : ' form form-control ' }}) #}
+																			        {# }} #}
+
+
+		{{ form_end(registrationForm) }}
+
+
+	</div>
+{% endblock %}
